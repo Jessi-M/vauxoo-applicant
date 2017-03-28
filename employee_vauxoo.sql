@@ -4,6 +4,7 @@
 --       Consider add ';' at end sentence.
 
 
+
 --	Create table employee_department
 CREATE TABLE employee_department (
   id integer PRIMARY KEY,
@@ -20,15 +21,16 @@ INSERT INTO employee_department (id, name, description) VALUES
 (5, 'Administration', 'Administration'),
 (6, 'Warehouse', 'Warehouse');
 
--- create table employee
+
 CREATE TABLE employee (
   id integer PRIMARY KEY,
   first_name varchar(60),
-  last_name varchar(60),
--- cambiios para asignar a los empleados un departamento
-  department_id integer REFERENCES employee_department (id),
--- cambios para asignar a los empleados un jefe
+  last_name varchar(60)
 );
+
+
+--	modificar employee_employee para poder asignar un departamento a cada empleado
+ALTER TABLE employee ADD COLUMN department_id integer REFERENCES employee_department (id);
 
 --	Inserta 4 empleados
 --	Insert data into table  employee_employee
@@ -37,42 +39,3 @@ INSERT INTO employee (id, first_name, last_name, department_id) VALUES
 (2, 'Joao', 'Ferreira', 2),
 (3, 'Pablo', 'Arocha', 2),
 (4, 'Jesús', 'Jimenez', 1);
-
-CREATE TABLE employee_hobby(
-  id integer PRIMARY kEY,
-  name varchar(60),
-  descaription varchar (150)
-);
-
-INSERT INTO employee_hobby(id,name,description) VALUES 
-(1,'Teatro','practicar tetro'),
-(2,'Deporte','practicar deporte'),
-(1,'Fotografia','tomar fotografias');
-
-CREATE TABLE employees_hobbies (
-  employee_id integer REFERENCES employee (id),
-  hobby_id integer REFERENCES employee (id),
-  PRIMARY KEY (employee_id,hobby_id)
-);
-
-INSERT INTO employees_hobbies (employee_id,hobby_id) VALUES
-(1,2),
-(1,3),
-
-(2,3),
-(2,1),
-
-(3,2),
-(3,3),
-
-(4,2),
-(4,1);
-
-ALTER TABLE employee ADD COLUMN boss_id integer REFERENCES employee (id);
-
-
-UPDATE employee SET boss_id = 1 WHERE id = 1;
-UPDATE employee SET boss_id = 1 WHERE id = 2;
-UPDATE employee SET boss_id = 2 WHERE id = 3;
-UPDATE employee SET boss_id = 3 WHERE id = 4;
-
