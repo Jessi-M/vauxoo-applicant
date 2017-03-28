@@ -1,21 +1,21 @@
 """
-modulo para calcular numeros primos
+Modulo que calcula si un numero es primo
 """
 
 
 class PrimeClass(object):
     """
-    clase que dado un entero calcula si es o no primo
+    Clase que calcula si un entero es primo
     """
 
     def is_prime(self, num_int):
         """
-        metodo que toma el entero y dice si es primo
+        Metodo que dado un entero dice si es primo o no
         """
-	if num_int <= 1:
-		return False
-	else:
-	    for divisor in xrange (2,num_int):
-		if num_iny % divisor == 0:
-		   return False
+        if num_int <= 1:
+            return False
+        else:
+            for divisor in range(2, num_int):
+                if num_int % divisor == 0:
+                    return False
             return True

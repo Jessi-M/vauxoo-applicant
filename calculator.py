@@ -1,19 +1,18 @@
 """
-modulo con operaciones aritmeticas
+Modulo que realiza operaciones aritmeticas
 """
 
 
 class CalculatorClass(object):
     """
-    clase para sumar los numeros
+    Clase con operaciones aritmeticas
     """
 
     def sum(self, num_list):
         """
-        metodo que suma los numeros de la lista
+        Metodo que suma
         """
-        # your sum code here
-	total = 0
-	for number in num_list:
-	    total+= number
+        total = 0
+        for number in num_list:
+            total += number
         return total
