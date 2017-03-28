@@ -2,6 +2,8 @@
 -- NOTE: Please, don't add sentence to create database in this script file.
 --       You can create database locally to test it.
 --       Consider add ';' at end sentence.
+
+-- create table employee
 CREATE TABLE employee (
   id integer PRIMARY KEY,
   first_name varchar(60),
