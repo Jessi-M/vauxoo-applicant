@@ -25,20 +25,20 @@ INSERT INTO employee_department (id, name, description) VALUES
 CREATE TABLE employee (
   id integer PRIMARY KEY,
   first_name varchar(60),
-  last_name varchar(60)
+  last_name varchar(60),
+--	modificar employee para poder asignar un departamento a cada empleado
+  department_id integer REFERENCES employee_department (id),
+--      modificar employee para poder asignar un jefe a cada empleado
+  boss_id integer REFERENCES employee (id) 
 );
-
-
---	modificar employee_employee para poder asignar un departamento a cada empleado
-ALTER TABLE employee ADD COLUMN department_id integer REFERENCES employee_department (id);
 
 --	Inserta 4 empleados
 --	Insert data into table  employee_employee
-INSERT INTO employee (id, first_name, last_name, department_id) VALUES
-(1, 'Jhessica', 'Martinez', 1),
-(2, 'Joao', 'Ferreira', 2),
-(3, 'Pablo', 'Arocha', 2),
-(4, 'Jesús', 'Jimenez', 1);
+INSERT INTO employee (id, first_name, last_name, department_id, boss_id) VALUES
+(1, 'Jhessica', 'Martinez',1,1),
+(2, 'Joao', 'Ferreira',2,1),
+(3, 'Pablo', 'Arocha',2,2),
+(4, 'Jesús', 'Jimenez',1,2);
 
 CREATE TABLE employee_hobby (
   id integer PRIMARY KEY,
