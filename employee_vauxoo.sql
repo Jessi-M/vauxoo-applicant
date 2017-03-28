@@ -25,12 +25,14 @@ CREATE TABLE employee (
   id integer PRIMARY KEY,
   first_name varchar(60),
   last_name varchar(60),
-  department_id integer REFERENCES employee_department (id)
+-- cambiios para asignar a los empleados un departamento
+  department_id integer REFERENCES employee_department (id),
+-- cambios para asignar a los empleados un jefe
 );
 
 --	Inserta 4 empleados
 --	Insert data into table  employee_employee
-INSERT INTO employee_employee (id, first_name, last_name, department_id) VALUES
+INSERT INTO employee (id, first_name, last_name, department_id) VALUES
 (1, 'Jhessica', 'Martinez', 1),
 (2, 'Joao', 'Ferreira', 2),
 (3, 'Pablo', 'Arocha', 2),
