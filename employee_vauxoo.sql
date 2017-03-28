@@ -3,30 +3,35 @@
 --       You can create database locally to test it.
 --       Consider add ';' at end sentence.
 
-CREATE TABLE employee (
-id integer PRIMARY KEY,
-first_name varchar (60),
-last_name varchar (60)
-);
-
-CREATE TABLE employee_department (
+CREATE TABLE employee_hobby (
 id integer PRIMARY KEY,
 name varchar (60),
 description varchar (60)
 );
 
-INSERT INTO employee_department (id,name,description) VALUES
-(1,'Direccion General','Direccion General'),
-(2,'Direccion de operaciones','Direccion de operaciones de planta'),
-(3,'Administracion','Administracion'),
-(4,'Ventas','Ventas'),
-(5,'Compras','Compras'),
-(6,'Recursos humanos','recursos humanos');
+INSERT INTO employee_hobby (id,name,description) VALUES
+(1,'Videojuegos','jugar videojuegos'),
+(2,'Teatro','participar en obras'),
+(3,'Deportes','practicar deporte');
 
-ALTER TABLE employee ADD COLUMN department_id integer REFERENCES employee_department (id);
 
-INSERT INTO employee (id,first_name,last_name,department_id) VALUES
-(1,'Jhesica','Martinez',1),
-(2,'Hernan','Hernandez',2),
-(3,'Julio','Marana',3),
-(4,'Jerson','Valencia',1);
+CREATE TABLE employees_hobbies (
+employee_id integer REFERENCES employee (id),
+hobby_id integer REFERENCES employee_hobby (id),
+PRIMARY KEY (employee_id, hobby_id)
+);
+
+INSERT INTO employees_hobbies (employee_id,hobby_id) VALUES
+(1,2),
+(1,3),
+
+(2,2),
+(2,3),
+
+(3,1),
+(3,2),
+
+(4,2),
+(4,3);
+
+
