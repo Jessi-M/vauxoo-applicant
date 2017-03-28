@@ -3,13 +3,6 @@
 --       You can create database locally to test it.
 --       Consider add ';' at end sentence.
 
--- create table employee
-CREATE TABLE employee (
-  id integer PRIMARY KEY,
-  first_name varchar(60),
-  last_name varchar(60)
-);
-
 
 --	Create table employee_department
 CREATE TABLE employee_department (
@@ -27,8 +20,13 @@ INSERT INTO employee_department (id, name, description) VALUES
 (5, 'Administration', 'Administration'),
 (6, 'Warehouse', 'Warehouse');
 
---	modificar employee_employee para poder asignar un departamento a cada empleado
-ALTER TABLE employee ADD COLUMN department_id integer REFERENCES employee_department (id);
+-- create table employee
+CREATE TABLE employee (
+  id integer PRIMARY KEY,
+  first_name varchar(60),
+  last_name varchar(60),
+  department_id integer REFERENCES employee_department (id)
+);
 
 --	Inserta 4 empleados
 --	Insert data into table  employee_employee
