@@ -3,6 +3,9 @@
 --       You can create database locally to test it.
 --       Consider add ';' at end sentence.
 
+CREATE DATABASE employee_employee;
+USE employee_employee;
+
 --	Create table employee
 CREATE TABLE employee (
   id integer PRIMARY KEY,
